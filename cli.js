@@ -27,6 +27,7 @@ program.version(pkg.version)
     .option('-d, --daemonized ', 'Whether to continue running with empty queue'  )
     .option('-s, --sleep [value]', 'Number of seconds to wait after polling empty queue when daemonized', parseInt)
     .option('-t, --timeout [value]', 'Timeout for waiting response from worker, ms' )
+    .option('-vt, --visibility-timeout [value]', 'The parameter applied to the messages that Amazon SQS returns in the response', parseInt )
     .option('--worker-health-url [value]', 'Url for checking that worker is running, useful when running in linked containers and worker needs some time to  up' )
     .option('--worker-health-wait-time [value]', 'Timeout for waiting while worker become  health, ms' )
     .option('--wait-time [value]', 'Long polling wait time when querying the queue.', parseInt)
@@ -54,6 +55,7 @@ var defaults = {
     , workerHealthWaitTime: 10000
     , sslEnabled: true
     , verbose: 0
+    , visibilityTimeout: false
 }
 
 dotenv.config({
@@ -80,6 +82,7 @@ var envParams = { accessKeyId: process.env.AWS_ACCESS_KEY_ID
     , queueName: process.env.SQSD_QUEUE_NAME
     , sslEnabled: process.env.SQSD_SSL_ENABLED
     , verbose: process.env.VERBOSE
+    , visibilityTimeout: process.env.SQSD_VISIBILITY_TIMEOUT
 }
 
 var extractedCliArgs = _.pick(program, _.keys(envParams));

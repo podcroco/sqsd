@@ -95,6 +95,7 @@ Run the program with the `--help` flag to see the full list of accepted argument
 | --content-type | `SQSD_WORKER_HTTP_REQUEST_CONTENT_TYPE`          | `application/json` | no           | Message MIME Type.                                                                                                   |
 | --concurrency  | `SQSD_WORKER_CONCURRENCY`                        | 3                  | no           | Number of concurrent http request to worker service                                                                  |
 |  -t, --timeout | `SQSD_WORKER_TIMEOUT`                            | 60000              | no           | Timeout for waiting response from worker, ms                                                                         |
+|  -vt, --visibility-timeout | `SQSD_VISIBILITY_TIMEOUT`                            | -              | no           | The parameter applied to the messages that Amazon SQS returns in the response                            |
 |  --worker-health-url | `SQSD_WORKER_HEALTH_URL`                         | -                  | no           | Url for checking that worker is running, useful when running in linked containers and worker needs some time to  up. |
 |  --worker-health-wait-time | `SQSD_WORKER_HEALTH_WAIT_TIME`                   | 10000              | no           | Timeout for waiting while worker become  health, ms                                                                  |
 
